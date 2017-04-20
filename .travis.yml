@@ -5,7 +5,7 @@ addons:
   sonarqube:
     organization: "slixes"
     token:
-      secure: "apSwNsNAaJFaLFxoLMSA"
+      secure: "fxu0J3iaOFjRPWHEEsg7zBbQQdv/bCY/dKIiTTP/RU70x2oBlqc0iNaaIDOxF+1ZO/4pqvnHeIaPLleCtay4XfsZACn6VYdcW6/pRu+k/NMInmnU/uDfJ8qFJyKWTS4DBvdh6yWTgkMMwlzyvvMtC5H/iOBxgW3eHcHdf5Rn815CQ5FdRjXWevsXNx2+7s7XMB1hsZsKoZ+tq70JetJzNoIsMdKedBBrfwUtB4JRCbiw7s5sDw8zVoBb8JxiW2wUs7+WsI1eo9C29u4proXzqM2g6/w/IiBrCwkJQNC6ZdGzsR7zN7OLyUMckfdzC/lyCxf/hxe09A41VYigW4Yjqrhq/tCQIeBdluFnwg8say0y55HacGSt3YzuDsS1cs5VrgkJtJJU5YP72LogqDgTguIVD2pHnWt5I9Al9emt4yyoSmi9y1lCYMt3oPFydZk37dMITQjTviRkEtEhKqARSsr4hECMzY0HRSxDR2Q3pBWWFy75bT5wFxtTJPk7ZEfKwzVs/pd6dc9Tam4+mb87nuvR6Im2wPGVO0xQW0pUr/J9hSj3oXJ3OmsSEkc0jvFaXZzFUM8l+hdUUJ0jLlrH6+VOPXXJmvduslyTDQNRX5iaOTcqQ7oVWtzsSbwJPNtKCTzWxeDQdwJUoeIr+shC0+4kfR2yBkK6UavBGZnWmCc="
 jdk:
   - oraclejdk8
 script:
