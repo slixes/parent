@@ -69,9 +69,9 @@
     <pluginManagement>
       <plugins>
         <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>${antrun.plugin.version}</version>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>${antrun.plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -147,16 +147,13 @@
               <id>default-jar</id>
               <configuration>
                 <archive>
-                  <!-- Generate a jar INDEX.LIST -->
                   <index>true</index>
-                  <!-- Add the Maven coordinates in the manifest -->
                   <manifestEntries>
                     <Maven-Group-Id>${project.groupId}</Maven-Group-Id>
                     <Maven-Artifact-Id>${project.artifactId}</Maven-Artifact-Id>
                     <Maven-Version>${project.version}</Maven-Version>
                   </manifestEntries>
                 </archive>
-                <!-- Remove examples and docoverride -->
                 <excludes>
                   <exclude>/docoverride/**</exclude>
                   <exclude>/examples/**</exclude>
@@ -171,17 +168,7 @@
           <version>${surefire.plugin.version}</version>
           <configuration>
             <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
-            <systemPropertyVariables>
-              <io.netty.leakDetectionLevel>PARANOID</io.netty.leakDetectionLevel>
-            </systemPropertyVariables>
-            <!--
-            Memory: Needs to be small enough to run in a EC2 1.7GB small instance
-            ArgLine: Allow using plugin injecting argLine (such as Jacoco) - notice the @{} instead of ${} to enable
-            the late replacement.
-            -->
             <argLine>-server -Xmx1024M @{surefireArgLine}</argLine>
-            <forkCount>1</forkCount>
-            <reuseForks>true</reuseForks>
           </configuration>
         </plugin>
         <plugin>
@@ -198,7 +185,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${javadoc.plugin.version}</version>
-          <!-- Remove impl and keep only io/vertx files (no examples or docoverride) -->
           <configuration>
             <additionalparam>-Xdoclint:none</additionalparam>
             <sourceFileExcludes>
@@ -206,7 +192,7 @@
               <sourceFileExclude>**/impl/**</sourceFileExclude>
             </sourceFileExcludes>
             <sourceFileIncludes>
-              <sourceFileInclude>io/vertx/**/*.java</sourceFileInclude>
+              <sourceFileInclude>io/slixes/**/*.java</sourceFileInclude>
             </sourceFileIncludes>
           </configuration>
         </plugin>
@@ -266,7 +252,7 @@
                     <version>[3.5.0,)</version>
                   </requireMavenVersion>
                   <requireJavaVersion>
-                    <version>1.8</version>
+                    <version>${jdk.version}</version>
                   </requireJavaVersion>
                 </rules>
                 <fail>true</fail>
@@ -283,9 +269,9 @@
           </configuration>
         </plugin>
         <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>${project.info.reports.plugin.version}</version>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>${project.info.reports.plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -332,12 +318,10 @@
       <id>release</id>
       <build>
         <plugins>
-          <!-- Set plugin version due to wrong plugin version when activating this profile -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
           </plugin>
-
         </plugins>
       </build>
     </profile>
