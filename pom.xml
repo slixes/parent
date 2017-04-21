@@ -8,6 +8,7 @@
   <packaging>pom</packaging>
 
   <name>Slixes Parent POM</name>
+  <description>Parent POM for the Slixes Platform</description>
 
   <url>http://slixes.io</url>
 
@@ -74,7 +75,7 @@
     <dependency.versions.check.plugin.version>2.0.4</dependency.versions.check.plugin.version>
     <asciidoctor.plugin.version>1.5.5</asciidoctor.plugin.version>
     <nexus.staging.maven.plugin.version>1.6.7</nexus.staging.maven.plugin.version>
-    <gpg.plugin.version>1.6</gpg.plugin.version>
+    <gpg.plugin.version>1.5</gpg.plugin.version>
 
     <surefireArgLine />
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
