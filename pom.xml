@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.slixes</groupId>
   <artifactId>parent</artifactId>
-  <version>3-SNAPSHOT</version>
+  <version>3</version>
   <packaging>pom</packaging>
 
   <name>Slixes :: Parent POM</name>
@@ -33,7 +32,7 @@
     <connection>scm:git:git@github.com:slixes/parent.git</connection>
     <developerConnection>scm:git:git@github.com:slixes/parent.git</developerConnection>
     <url>git@github.com:slixes/parent.git</url>
-    <tag>HEAD</tag>
+    <tag>parent-3</tag>
   </scm>
 
   <distributionManagement>
@@ -79,7 +78,7 @@
     <gpg.plugin.version>1.5</gpg.plugin.version>
     <coveralls.plugin.version>4.3.0</coveralls.plugin.version>
 
-    <surefireArgLine/>
+    <surefireArgLine />
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     <sonar.jacoco.reportPath>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPath>
