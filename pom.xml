@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.slixes</groupId>
   <artifactId>parent</artifactId>
-  <version>3-SNAPSHOT</version>
+  <version>3</version>
   <packaging>pom</packaging>
 
   <name>Slixes :: Parent POM</name>
@@ -76,13 +77,15 @@
     <asciidoctor.plugin.version>1.5.5</asciidoctor.plugin.version>
     <nexus.staging.maven.plugin.version>1.6.7</nexus.staging.maven.plugin.version>
     <gpg.plugin.version>1.5</gpg.plugin.version>
+    <coveralls.plugin.version>4.3.0</coveralls.plugin.version>
 
-    <surefireArgLine />
+    <surefireArgLine/>
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     <sonar.jacoco.reportPath>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPath>
     <sonar.jacoco.itReportPath>${project.build.directory}/jacoco-it.exec
     </sonar.jacoco.itReportPath>
+    <coveralls.token />
   </properties>
 
   <build>
@@ -361,6 +364,23 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+          <groupId>org.eluder.coveralls</groupId>
+          <artifactId>coveralls-maven-plugin</artifactId>
+          <version>${coveralls.plugin.version}</version>
+          <configuration>
+            <repoToken>${coveralls.token}</repoToken>
+          </configuration>
+          <executions>
+            <execution>
+              <id>post-unit-test</id>
+              <phase>test</phase>
+              <goals>
+                <goal>report</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -386,7 +406,7 @@
 
   <profiles>
     <profile>
-      <id>release</id>
+      <id>cicd</id>
       <build>
         <plugins>
           <plugin>
@@ -404,6 +424,10 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.eluder.coveralls</groupId>
+            <artifactId>coveralls-maven-plugin</artifactId>
           </plugin>
         </plugins>
       </build>
