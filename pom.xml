@@ -60,7 +60,7 @@
     <resources.plugin.version>3.0.2</resources.plugin.version>
     <javadoc.plugin.version>2.10.4</javadoc.plugin.version>
     <jsdoc.plugin.version>1.2.0</jsdoc.plugin.version>
-    <dependency.plugin.version>3.0.0</dependency.plugin.version>
+    <dependency.plugin.version>3.0.1</dependency.plugin.version>
     <clean.plugin.version>3.0.0</clean.plugin.version>
     <deploy.plugin.version>2.8.2</deploy.plugin.version>
     <install.plugin.version>2.5.2</install.plugin.version>
@@ -74,8 +74,9 @@
     <jacoco.plugin.version>0.7.9</jacoco.plugin.version>
     <dependency.versions.check.plugin.version>2.0.4</dependency.versions.check.plugin.version>
     <asciidoctor.plugin.version>1.5.5</asciidoctor.plugin.version>
-    <nexus.staging.maven.plugin.version>1.6.7</nexus.staging.maven.plugin.version>
-    <gpg.plugin.version>1.5</gpg.plugin.version>
+    <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
+    <gpg.plugin.version>1.6</gpg.plugin.version>
+    <versions.plugin.version>2.4</versions.plugin.version>
 
     <surefireArgLine />
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
@@ -359,6 +360,11 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>versions-maven-plugin</artifactId>
+          <version>${versions.plugin.version}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -407,4 +413,22 @@
       </build>
     </profile>
   </profiles>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependency-updates-report</report>
+              <report>plugin-updates-report</report>
+              <report>property-updates-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>
