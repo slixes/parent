@@ -4,7 +4,7 @@
 
   <groupId>io.slixes</groupId>
   <artifactId>parent</artifactId>
-  <version>10</version>
+  <version>1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Slixes :: Parent POM</name>
@@ -42,7 +42,7 @@
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/de  ploy/maven2/</url>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
 
