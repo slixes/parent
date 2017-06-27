@@ -4,7 +4,7 @@
 
   <groupId>io.slixes</groupId>
   <artifactId>parent</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.2</version>
   <packaging>pom</packaging>
 
   <name>Slixes :: Parent POM</name>
@@ -32,7 +32,7 @@
     <connection>scm:git:git@github.com:slixes/parent.git</connection>
     <developerConnection>scm:git:git@github.com:slixes/parent.git</developerConnection>
     <url>git@github.com:slixes/parent.git</url>
-    <tag>parent-1</tag>
+    <tag>parent-0.0.2</tag>
   </scm>
 
   <distributionManagement>
