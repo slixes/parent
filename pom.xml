@@ -4,7 +4,7 @@
 
   <groupId>io.slixes</groupId>
   <artifactId>parent</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Slixes :: Parent POM</name>
@@ -123,7 +123,7 @@
           <configuration>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <useReleaseProfile>false</useReleaseProfile>
-            <releaseProfiles>cicd</releaseProfiles>
+            <releaseProfiles>oss</releaseProfiles>
             <goals>deploy</goals>
           </configuration>
         </plugin>
