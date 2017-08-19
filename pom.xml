@@ -4,7 +4,7 @@
 
   <groupId>io.slixes</groupId>
   <artifactId>parent</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>pom</packaging>
 
   <name>Slixes - Parent</name>
@@ -32,7 +32,6 @@
     <connection>scm:git:git@github.com:slixes/parent.git</connection>
     <developerConnection>scm:git:git@github.com:slixes/parent.git</developerConnection>
     <url>git@github.com:slixes/parent.git</url>
-    <tag>parent-0.0.1</tag>
   </scm>
 
   <distributionManagement>
@@ -119,7 +118,7 @@
           <configuration>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <useReleaseProfile>false</useReleaseProfile>
-            <releaseProfiles>oss</releaseProfiles>
+            <releaseProfiles>ossrh</releaseProfiles>
             <goals>deploy</goals>
           </configuration>
         </plugin>
@@ -218,6 +217,14 @@
               <sourceFileInclude>io/slixes/**/*.java</sourceFileInclude>
             </sourceFileIncludes>
           </configuration>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
@@ -272,7 +279,7 @@
                     <version>${jdk.version}</version>
                   </requireJavaVersion>
                   <requireActiveProfile>
-                    <profiles>oss,release</profiles>
+                    <profiles>ossrh,release</profiles>
                   </requireActiveProfile>
                   <requireUpperBoundDeps />
                 </rules>
@@ -339,8 +346,35 @@
           <artifactId>versions-maven-plugin</artifactId>
           <version>${versions.plugin.version}</version>
         </plugin>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>${nexus.staging.maven.plugin.version}</version>
+          <extensions>true</extensions>
+          <configuration>
+            <serverId>ossrh</serverId>
+            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
   </build>
 
   <reporting>
@@ -366,19 +400,7 @@
       <id>release</id>
       <build>
         <plugins>
-          <plugin>
-            <artifactId>maven-jar-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <artifactId>maven-checkstyle-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <artifactId>maven-enforcer-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-          </plugin>
+
           <plugin>
             <artifactId>maven-source-plugin</artifactId>
           </plugin>
