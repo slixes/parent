@@ -1,17 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>io.slixes</groupId>
   <artifactId>parent</artifactId>
-  <version>0.0.1</version>
+  <version>2</version>
   <packaging>pom</packaging>
-
-  <name>Slixes - Parent</name>
+  <name>Slixes Parent POM</name>
   <description>Parent POM for the Slixes Platform</description>
-
   <url>http://slixes.io</url>
-
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -19,38 +14,38 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-
   <developers>
     <developer>
-      <id>slixes</id>
-      <name>Slixes</name>
-      <url>http://github.com/slixes</url>
+      <id>fmatar</id>
+      <name>Fady Matar</name>
+      <url>http://github.com/fmatar</url>
     </developer>
   </developers>
-
   <scm>
     <connection>scm:git:git@github.com:slixes/parent.git</connection>
     <developerConnection>scm:git:git@github.com:slixes/parent.git</developerConnection>
     <url>git@github.com:slixes/parent.git</url>
+    <tag>HEAD</tag>
   </scm>
-
   <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <url>
+        https://oss.sonatype.org/content/repositories/snapshots
+      </url>
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <url>
+        https://oss.sonatype.org/service/local/staging/deploy/maven2/
+      </url>
     </repository>
   </distributionManagement>
-
   <properties>
     <jdk.version>1.8</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-    <!-- Plugins -->
+    <!--  Plugins  -->
     <antrun.plugin.version>1.8</antrun.plugin.version>
     <compiler.plugin.version>3.6.1</compiler.plugin.version>
     <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
@@ -59,7 +54,7 @@
     <resources.plugin.version>3.0.2</resources.plugin.version>
     <javadoc.plugin.version>2.10.4</javadoc.plugin.version>
     <jsdoc.plugin.version>1.2.0</jsdoc.plugin.version>
-    <dependency.plugin.version>3.0.1</dependency.plugin.version>
+    <dependency.plugin.version>3.0.0</dependency.plugin.version>
     <clean.plugin.version>3.0.0</clean.plugin.version>
     <deploy.plugin.version>2.8.2</deploy.plugin.version>
     <install.plugin.version>2.5.2</install.plugin.version>
@@ -73,24 +68,24 @@
     <jacoco.plugin.version>0.7.9</jacoco.plugin.version>
     <dependency.versions.check.plugin.version>2.0.4</dependency.versions.check.plugin.version>
     <asciidoctor.plugin.version>1.5.5</asciidoctor.plugin.version>
-    <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
-    <gpg.plugin.version>1.6</gpg.plugin.version>
-    <versions.plugin.version>2.4</versions.plugin.version>
-
-    <surefireArgLine />
+    <nexus.staging.maven.plugin.version>1.6.7</nexus.staging.maven.plugin.version>
+    <gpg.plugin.version>1.5</gpg.plugin.version>
+    <surefireArgLine/>
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-    <sonar.jacoco.reportPaths>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPaths>
+    <sonar.jacoco.reportPath>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPath>
+    <sonar.jacoco.itReportPath>${project.build.directory}/jacoco-it.exec</sonar.jacoco.itReportPath>
   </properties>
-
   <build>
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-antrun-plugin</artifactId>
           <version>${antrun.plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${compiler.plugin.version}</version>
           <configuration>
@@ -100,6 +95,7 @@
           </configuration>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <version>${source.plugin.version}</version>
           <executions>
@@ -113,20 +109,23 @@
           </executions>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
           <version>${release.plugin.version}</version>
           <configuration>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <useReleaseProfile>false</useReleaseProfile>
-            <releaseProfiles>ossrh</releaseProfiles>
+            <releaseProfiles>release</releaseProfiles>
             <goals>deploy</goals>
           </configuration>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
           <version>${assembly.plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${checkstyle.plugin.version}</version>
           <executions>
@@ -151,7 +150,8 @@
           <version>${asciidoctor.plugin.version}</version>
           <configuration>
             <sourceDirectory>${asciidoc.dir}</sourceDirectory>
-            <outputDirectory>${project.build.directory}/docs/${project.artifactId}
+            <outputDirectory>
+              ${project.build.directory}/docs/${project.artifactId}
             </outputDirectory>
             <sourceHighlighter>coderay</sourceHighlighter>
             <preserveDirectories>true</preserveDirectories>
@@ -166,6 +166,7 @@
           <version>${jsdoc.plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>${jar.plugin.version}</version>
           <executions>
@@ -189,6 +190,7 @@
           </executions>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${surefire.plugin.version}</version>
           <configuration>
@@ -197,14 +199,17 @@
           </configuration>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-report-plugin</artifactId>
           <version>${surefire.report.plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>${site.plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${javadoc.plugin.version}</version>
           <configuration>
@@ -217,36 +222,34 @@
               <sourceFileInclude>io/slixes/**/*.java</sourceFileInclude>
             </sourceFileIncludes>
           </configuration>
-          <executions>
-            <execution>
-              <id>attach-javadocs</id>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
           <version>${resources.plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>${dependency.plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
           <version>${install.plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>${deploy.plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
           <version>${clean.plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>${enforcer.plugin.version}</version>
           <executions>
@@ -268,20 +271,17 @@
                     <excludes>
                       <exclude>org.apache.maven.plugins:maven-verifier-plugin</exclude>
                     </excludes>
-                    <message>Please consider using the maven-invoker-plugin
+                    <message>
+                      Please consider using the maven-invoker-plugin
                       (http://maven.apache.org/plugins/maven-invoker-plugin/)!
                     </message>
                   </bannedPlugins>
                   <requireMavenVersion>
-                    <version>[3.3.9,)</version>
+                    <version>[3.2.5,)</version>
                   </requireMavenVersion>
                   <requireJavaVersion>
                     <version>${jdk.version}</version>
                   </requireJavaVersion>
-                  <requireActiveProfile>
-                    <profiles>ossrh,release</profiles>
-                  </requireActiveProfile>
-                  <requireUpperBoundDeps />
                 </rules>
                 <fail>true</fail>
               </configuration>
@@ -297,6 +297,7 @@
           </configuration>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>${project.info.reports.plugin.version}</version>
         </plugin>
@@ -329,6 +330,18 @@
           </executions>
         </plugin>
         <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>${nexus.staging.maven.plugin.version}</version>
+          <extensions>true</extensions>
+          <configuration>
+            <serverId>ossrh</serverId>
+            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
           <version>${gpg.plugin.version}</version>
           <executions>
@@ -341,33 +354,19 @@
             </execution>
           </executions>
         </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>versions-maven-plugin</artifactId>
-          <version>${versions.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.sonatype.plugins</groupId>
-          <artifactId>nexus-staging-maven-plugin</artifactId>
-          <version>${nexus.staging.maven.plugin.version}</version>
-          <extensions>true</extensions>
-          <configuration>
-            <serverId>ossrh</serverId>
-            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-          </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
-
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
       </plugin>
       <plugin>
@@ -376,38 +375,25 @@
       </plugin>
     </plugins>
   </build>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>versions-maven-plugin</artifactId>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>dependency-updates-report</report>
-              <report>plugin-updates-report</report>
-              <report>property-updates-report</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-    </plugins>
-  </reporting>
-
   <profiles>
     <profile>
       <id>release</id>
       <build>
         <plugins>
-
           <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
           </plugin>
           <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
           </plugin>
           <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
           </plugin>
         </plugins>
