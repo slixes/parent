@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.slixes</groupId>
   <artifactId>parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Slixes Parent POM</name>
   <description>Parent POM for the Slixes Platform</description>
@@ -60,7 +60,7 @@
     <install.plugin.version>2.5.2</install.plugin.version>
     <assembly.plugin.version>3.1.0</assembly.plugin.version>
     <site.plugin.version>3.6</site.plugin.version>
-    <surefire.plugin.version>2.20</surefire.plugin.version>
+    <surefire.plugin.version>2.20.1</surefire.plugin.version>
     <surefire.report.plugin.version>2.20.1</surefire.report.plugin.version>
     <release.plugin.version>2.5.3</release.plugin.version>
     <enforcer.plugin.version>1.4.1</enforcer.plugin.version>
