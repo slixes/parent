@@ -76,6 +76,8 @@
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     <sonar.jacoco.reportPath>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPath>
     <sonar.jacoco.itReportPath>${project.build.directory}/jacoco-it.exec</sonar.jacoco.itReportPath>
+
+    <maven.version>[3.5.0,)</maven.version>
   </properties>
   <build>
     <pluginManagement>
@@ -278,7 +280,7 @@
                     </message>
                   </bannedPlugins>
                   <requireMavenVersion>
-                    <version>[3.2.5,)</version>
+                    <version>[3.5.0,)</version>
                   </requireMavenVersion>
                   <requireJavaVersion>
                     <version>${jdk.version}</version>
@@ -382,6 +384,49 @@
     </plugins>
   </build>
   <profiles>
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>enforce-no-snapshots</id>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <bannedPlugins>
+                      <level>WARN</level>
+                      <excludes>
+                        <exclude>org.apache.maven.plugins:maven-verifier-plugin</exclude>
+                      </excludes>
+                      <message>
+                        Please consider using the maven-invoker-plugin
+                        (http://maven.apache.org/plugins/maven-invoker-plugin/)!
+                      </message>
+                    </bannedPlugins>
+                    <requireMavenVersion>
+                      <version>${maven.version}</version>
+                    </requireMavenVersion>
+                    <requireJavaVersion>
+                      <version>${jdk.version}</version>
+                    </requireJavaVersion>
+                  </rules>
+                  <fail>true</fail>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <profile>
       <id>release</id>
       <build>
