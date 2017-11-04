@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.slixes</groupId>
@@ -373,8 +374,7 @@
                       <excludes>
                         <exclude>org.apache.maven.plugins:maven-verifier-plugin</exclude>
                       </excludes>
-                      <message>
-                        Please consider using the maven-invoker-plugin
+                      <message>Please consider using the maven-invoker-plugin
                         (http://maven.apache.org/plugins/maven-invoker-plugin/)!
                       </message>
                     </bannedPlugins>
