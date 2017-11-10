@@ -6,6 +6,8 @@ addons:
     organization: slixes
     token:
       secure: "hlfgQMHX/v0sUDeg5PNujAblYcrEKQsGiEpA9tUP4iDua83TjDYw5ivtqdVuOonxM3mfM+Hyhc00ARf3lS6MpdO/yPmkW/C/3doEAJ5h3LCEluFk5HMmMwKpEXfvO3VURXN9jIRwGpy7GnP7KKhv51u8a4+gKUUmuOB5T8V9lexcT56RjWE4+5TzJRUO6ZTNBVXxp9PlhM/0Tol6O7iYrB3LXLszWBGaABKNe3x3j3NY8XB61ECGgoWO8dAvNrB3uEDnXHtYeRMl6xXghIWtE28tNJWjBo+u0DR9ggfwlXsdUVHKU0E6LmBgbctJ/JHxzoRkgm7W4my3E+Vv3j98TZKZrO9hzT3evpIsos7EbzqAk9YUlxWc/yzTwjJ/EisG+3lcnTabx6mQcvr6SPM+a6hAogO48VDsjpraw8rMWQjJhqBlfVICV/YjXuXhU4/s0CF3v0JfRgWOMgSGmDNVZG/VrcB3tO+CBwSxlLJGVOL60K0i89+kubLfDmCn9Mw1g9y3RBTRZilJKYZ/pTfWrQ/IdZ4Wf70hs/hehwMNoEZJNczmsI2nk3tqamFWg/ynp6sAA+IRvEDcePNCYXVl/3Kpnc0Z8NRC9sJSQbQil6z62YmvJDQIUP9NVzqd1oQZkNyHylhuM9R/N2NTaFS7bqZKXZtHMsRQA7nGLFbxRtM="
+    branches:
+    - master
 jdk:
 - oraclejdk8
 script:
