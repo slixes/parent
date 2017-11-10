@@ -1,6 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.slixes</groupId>
   <artifactId>parent</artifactId>
@@ -44,9 +45,11 @@
     </repository>
   </distributionManagement>
   <properties>
+    <!-- Environment -->
     <jdk.version>1.8</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.version>[3.5.0,)</maven.version>
     <!--  Plugins  -->
     <antrun.plugin.version>1.8</antrun.plugin.version>
     <compiler.plugin.version>3.7.0</compiler.plugin.version>
@@ -74,24 +77,21 @@
     <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
     <gpg.plugin.version>1.6</gpg.plugin.version>
     <versions.maven.plugin>2.5</versions.maven.plugin>
+    <!-- Plugins configuration -->
     <surefireArgLine/>
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     <sonar.jacoco.reportPath>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPath>
     <sonar.jacoco.itReportPath>${project.build.directory}/jacoco-it.exec</sonar.jacoco.itReportPath>
-
-    <maven.version>[3.5.0,)</maven.version>
   </properties>
   <build>
     <pluginManagement>
       <plugins>
         <plugin>
-
           <artifactId>maven-antrun-plugin</artifactId>
           <version>${antrun.plugin.version}</version>
         </plugin>
         <plugin>
-
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${compiler.plugin.version}</version>
           <configuration>
@@ -101,7 +101,6 @@
           </configuration>
         </plugin>
         <plugin>
-
           <artifactId>maven-source-plugin</artifactId>
           <version>${source.plugin.version}</version>
           <executions>
@@ -115,7 +114,6 @@
           </executions>
         </plugin>
         <plugin>
-
           <artifactId>maven-release-plugin</artifactId>
           <version>${release.plugin.version}</version>
           <configuration>
@@ -126,12 +124,10 @@
           </configuration>
         </plugin>
         <plugin>
-
           <artifactId>maven-assembly-plugin</artifactId>
           <version>${assembly.plugin.version}</version>
         </plugin>
         <plugin>
-
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${checkstyle.plugin.version}</version>
           <executions>
@@ -172,7 +168,6 @@
           <version>${jsdoc.plugin.version}</version>
         </plugin>
         <plugin>
-
           <artifactId>maven-jar-plugin</artifactId>
           <version>${jar.plugin.version}</version>
           <executions>
@@ -452,7 +447,6 @@
       </build>
     </profile>
   </profiles>
-
   <reporting>
     <plugins>
       <plugin>
