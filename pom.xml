@@ -64,6 +64,7 @@
     <site.plugin.version>3.6</site.plugin.version>
     <surefire.plugin.version>2.20.1</surefire.plugin.version>
     <surefire.report.plugin.version>2.20.1</surefire.report.plugin.version>
+    <failsafe.plugin.version>2.20.1</failsafe.plugin.version>
     <release.plugin.version>2.5.3</release.plugin.version>
     <enforcer.plugin.version>1.4.1</enforcer.plugin.version>
     <project.info.reports.plugin.version>2.9</project.info.reports.plugin.version>
@@ -336,6 +337,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>${enforcer.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${failsafe.plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
