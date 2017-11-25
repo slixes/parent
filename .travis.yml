@@ -15,6 +15,8 @@ jdk:
 - oraclejdk9
 script:
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+after_success:
+- .conf/publish.sh
 cache:
   directories:
   - "$HOME/.m2/repository"
