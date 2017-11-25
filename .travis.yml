@@ -1,7 +1,6 @@
 language: java
-sudo: false
+sudo: required
 install: true
-dist:
 addons:
   sonarcloud:
     organization: slixes
