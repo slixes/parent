@@ -1,23 +1,43 @@
 language: java
 sudo: required
-install: true
+#install: true
 addons:
   sonarcloud:
     organization: slixes
     token:
-      secure: "ILjp3SXYrBZa/RQUk9QMDVhCZOLq/Z90TfKrvzQPEEV1H7uRvzfyWScfm7InyRmd9uR17pgaOvzKceJdqbCZHVhuTNU5Ot+IbDPW9cr3IyxCu5x2TQub8QjJeuaWrEElXkgpIm2gnh7e+LSw5WCi1bPqrConsByHI+C2pLmn1Nbw9uMcWm48MuYvH1BVD8Y/TLKWBbyjRYovW+juB+YGfSlVJEeSz9A5iMsWbYFGQZT+X5e5T5LZkI0qvBdMNJXlUHsfGOhobYlaYUdXz9aoR4N6qc2Wd4wIeJbmWjvZb9da9lYXtCN5KWw2CwS7jA2wl8IklSKfxcIFUwBjsHALRhzcQAa5xz8s7GXwdC+90TxmvOBe9X5SQy0elIc/NHNJtIJVFazNaani9PPDmevCi4+QrPwDAP7yimE6bxhO5XnrM3GUZg2CDsbmT87OFDHUV7QRfqt3oilnqHDfRy8eF89NCnTYe5Z+RTaNm4QcrMeVjC9T4HvmRdZhAWo4ob7hkhCErP1JX23ITWkwtS1mDSbObCrIT5SUUNHKn8k5iB0JPFLbfUVestgAX/rPIGfjANIqKbuMF04LKHERUu37X3Bg8TMBvbgOAegEwX8dtN4gTHqcmqEoDZNgmpIZb0BTXaSGDzOe7mv7XXHLLALMHhZhBeD5VX6dsVopZa9Bdlk="
+      secure: ILjp3SXYrBZa/RQUk9QMDVhCZOLq/Z90TfKrvzQPEEV1H7uRvzfyWScfm7InyRmd9uR17pgaOvzKceJdqbCZHVhuTNU5Ot+IbDPW9cr3IyxCu5x2TQub8QjJeuaWrEElXkgpIm2gnh7e+LSw5WCi1bPqrConsByHI+C2pLmn1Nbw9uMcWm48MuYvH1BVD8Y/TLKWBbyjRYovW+juB+YGfSlVJEeSz9A5iMsWbYFGQZT+X5e5T5LZkI0qvBdMNJXlUHsfGOhobYlaYUdXz9aoR4N6qc2Wd4wIeJbmWjvZb9da9lYXtCN5KWw2CwS7jA2wl8IklSKfxcIFUwBjsHALRhzcQAa5xz8s7GXwdC+90TxmvOBe9X5SQy0elIc/NHNJtIJVFazNaani9PPDmevCi4+QrPwDAP7yimE6bxhO5XnrM3GUZg2CDsbmT87OFDHUV7QRfqt3oilnqHDfRy8eF89NCnTYe5Z+RTaNm4QcrMeVjC9T4HvmRdZhAWo4ob7hkhCErP1JX23ITWkwtS1mDSbObCrIT5SUUNHKn8k5iB0JPFLbfUVestgAX/rPIGfjANIqKbuMF04LKHERUu37X3Bg8TMBvbgOAegEwX8dtN4gTHqcmqEoDZNgmpIZb0BTXaSGDzOe7mv7XXHLLALMHhZhBeD5VX6dsVopZa9Bdlk=
     github_token:
-      secure: "YGAEQKE2CmdQzvS0VjLCAxFdXBCK9tp9CJvT/tdiCjc/99FmJEtwQ7kxc4vEAm0OZdPzsSZ5uoP3upUfx+uDKJxHfiJNJ11xnLddoBshMb2ZGL00iSMLYAQjZwYWKYvpqzVHfBfEoSiqd42RZswosgb1YKWUZQFrcm0RAfufRLIhnPBCy8XeFYgDqe0zbLRr2trIs+9BqGgClLoEQIFiHkslWGAdvoaJBKWz/78Vm0GAJFNynCKC8j+QHJtpjeRYYjZi30G0jNLL1a/c6yaFWknGicMUeSdD7q0Bxis5Zpa2s62kllY6sXvpldzhgUZurdr9y+9MATrevzflajzP9sVuZ+cALNS8wDDYY7VH5DINDn0M38neY2tAO8mqBozqNopUlyKnDAcCgLX1TVSTf6idIhZTgFdRuUHz3+/EnTz0vEfajY0K53HVhVIFVZLCzI+ZVGO45vw7ZY2Snrqph1Eejrira0RFj4BJbrZ4HNNc08FcdydPlqLnTQjAs26prm72CQKnJls+sdvCbveNMKk/TmnBCXHGHHDJCA8N9kGDftm8oemuFMTQuyiq+ueZ2J6OZd4XMLqCLDcQTnWPkhGCxXN+YUtbPDoJ6SLWsvWssU0YErP3o2WbFgWgsVSR26Q7c7V2MyoXcKmNHtddgHS6ACsmzVuWEpfdci66ZfU="
+      secure: YGAEQKE2CmdQzvS0VjLCAxFdXBCK9tp9CJvT/tdiCjc/99FmJEtwQ7kxc4vEAm0OZdPzsSZ5uoP3upUfx+uDKJxHfiJNJ11xnLddoBshMb2ZGL00iSMLYAQjZwYWKYvpqzVHfBfEoSiqd42RZswosgb1YKWUZQFrcm0RAfufRLIhnPBCy8XeFYgDqe0zbLRr2trIs+9BqGgClLoEQIFiHkslWGAdvoaJBKWz/78Vm0GAJFNynCKC8j+QHJtpjeRYYjZi30G0jNLL1a/c6yaFWknGicMUeSdD7q0Bxis5Zpa2s62kllY6sXvpldzhgUZurdr9y+9MATrevzflajzP9sVuZ+cALNS8wDDYY7VH5DINDn0M38neY2tAO8mqBozqNopUlyKnDAcCgLX1TVSTf6idIhZTgFdRuUHz3+/EnTz0vEfajY0K53HVhVIFVZLCzI+ZVGO45vw7ZY2Snrqph1Eejrira0RFj4BJbrZ4HNNc08FcdydPlqLnTQjAs26prm72CQKnJls+sdvCbveNMKk/TmnBCXHGHHDJCA8N9kGDftm8oemuFMTQuyiq+ueZ2J6OZd4XMLqCLDcQTnWPkhGCxXN+YUtbPDoJ6SLWsvWssU0YErP3o2WbFgWgsVSR26Q7c7V2MyoXcKmNHtddgHS6ACsmzVuWEpfdci66ZfU=
     branches:
     - master
 jdk:
 - oraclejdk9
 script:
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
-after_success:
-- sh .conf/deploy.sh
 cache:
   directories:
   - "$HOME/.m2/repository"
   - "$HOME/.sonar/cache"
 
+cd ~.install:
+  - mvn --settings .travis/settings.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+before_install:
+  - if [ ! -z "$GPG_SECRET_KEYS" ]; then echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import; fi
+  - if [ ! -z "$GPG_OWNERTRUST" ]; then echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust; fi
+deploy:
+  -
+    provider: script
+    script: .travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: slixes/parent
+      branch: master
+      jdk: oraclejdk9
+  -
+    provider: script
+    script: .travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: slixes/parent
+      tags: true
+      jdk: oraclejdk9
