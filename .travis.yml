@@ -1,6 +1,6 @@
 language: java
 sudo: required
-#install: true
+dist: zesty
 addons:
   sonarcloud:
     organization: slixes
