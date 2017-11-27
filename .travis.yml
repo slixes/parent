@@ -29,7 +29,9 @@ deploy:
     on:
       repo: slixes/parent
       branch: master
-      jdk: oraclejdk9
+      jdk:
+        - oraclejdk8
+        - oraclejdk9
   -
     provider: script
     script: .travis/deploy.sh
@@ -37,4 +39,6 @@ deploy:
     on:
       repo: slixes/parent
       tags: true
-      jdk: oraclejdk9
+      jdk:
+        - oraclejdk8
+        - oraclejdk9
