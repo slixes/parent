@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "Starting deployment"
 if [ ! -z "$TRAVIS_TAG" ]
 then
     echo "on a tag -> set pom.xml <version> to $TRAVIS_TAG"
