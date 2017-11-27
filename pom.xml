@@ -44,7 +44,7 @@
     </repository>
   </distributionManagement>
   <properties>
-    <jdk.version>1.8</jdk.version>
+    <jdk.version>1.9</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <!--  Plugins  -->
@@ -54,7 +54,7 @@
     <jar.plugin.version>3.0.2</jar.plugin.version>
     <source.plugin.version>3.0.1</source.plugin.version>
     <resources.plugin.version>3.0.2</resources.plugin.version>
-    <javadoc.plugin.version>2.10.4</javadoc.plugin.version>
+    <javadoc.plugin.version>3.0.0-M1</javadoc.plugin.version>
     <jsdoc.plugin.version>1.2.0</jsdoc.plugin.version>
     <dependency.plugin.version>3.0.2</dependency.plugin.version>
     <clean.plugin.version>3.0.0</clean.plugin.version>

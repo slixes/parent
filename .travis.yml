@@ -1,21 +1,41 @@
 language: java
-sudo: false
-install: true
+sudo: required
+#install: true
 addons:
   sonarcloud:
     organization: slixes
     token:
-      secure: fxu0J3iaOFjRPWHEEsg7zBbQQdv/bCY/dKIiTTP/RU70x2oBlqc0iNaaIDOxF+1ZO/4pqvnHeIaPLleCtay4XfsZACn6VYdcW6/pRu+k/NMInmnU/uDfJ8qFJyKWTS4DBvdh6yWTgkMMwlzyvvMtC5H/iOBxgW3eHcHdf5Rn815CQ5FdRjXWevsXNx2+7s7XMB1hsZsKoZ+tq70JetJzNoIsMdKedBBrfwUtB4JRCbiw7s5sDw8zVoBb8JxiW2wUs7+WsI1eo9C29u4proXzqM2g6/w/IiBrCwkJQNC6ZdGzsR7zN7OLyUMckfdzC/lyCxf/hxe09A41VYigW4Yjqrhq/tCQIeBdluFnwg8say0y55HacGSt3YzuDsS1cs5VrgkJtJJU5YP72LogqDgTguIVD2pHnWt5I9Al9emt4yyoSmi9y1lCYMt3oPFydZk37dMITQjTviRkEtEhKqARSsr4hECMzY0HRSxDR2Q3pBWWFy75bT5wFxtTJPk7ZEfKwzVs/pd6dc9Tam4+mb87nuvR6Im2wPGVO0xQW0pUr/J9hSj3oXJ3OmsSEkc0jvFaXZzFUM8l+hdUUJ0jLlrH6+VOPXXJmvduslyTDQNRX5iaOTcqQ7oVWtzsSbwJPNtKCTzWxeDQdwJUoeIr+shC0+4kfR2yBkK6UavBGZnWmCc=
+      secure: ILjp3SXYrBZa/RQUk9QMDVhCZOLq/Z90TfKrvzQPEEV1H7uRvzfyWScfm7InyRmd9uR17pgaOvzKceJdqbCZHVhuTNU5Ot+IbDPW9cr3IyxCu5x2TQub8QjJeuaWrEElXkgpIm2gnh7e+LSw5WCi1bPqrConsByHI+C2pLmn1Nbw9uMcWm48MuYvH1BVD8Y/TLKWBbyjRYovW+juB+YGfSlVJEeSz9A5iMsWbYFGQZT+X5e5T5LZkI0qvBdMNJXlUHsfGOhobYlaYUdXz9aoR4N6qc2Wd4wIeJbmWjvZb9da9lYXtCN5KWw2CwS7jA2wl8IklSKfxcIFUwBjsHALRhzcQAa5xz8s7GXwdC+90TxmvOBe9X5SQy0elIc/NHNJtIJVFazNaani9PPDmevCi4+QrPwDAP7yimE6bxhO5XnrM3GUZg2CDsbmT87OFDHUV7QRfqt3oilnqHDfRy8eF89NCnTYe5Z+RTaNm4QcrMeVjC9T4HvmRdZhAWo4ob7hkhCErP1JX23ITWkwtS1mDSbObCrIT5SUUNHKn8k5iB0JPFLbfUVestgAX/rPIGfjANIqKbuMF04LKHERUu37X3Bg8TMBvbgOAegEwX8dtN4gTHqcmqEoDZNgmpIZb0BTXaSGDzOe7mv7XXHLLALMHhZhBeD5VX6dsVopZa9Bdlk=
+    github_token:
+      secure: YGAEQKE2CmdQzvS0VjLCAxFdXBCK9tp9CJvT/tdiCjc/99FmJEtwQ7kxc4vEAm0OZdPzsSZ5uoP3upUfx+uDKJxHfiJNJ11xnLddoBshMb2ZGL00iSMLYAQjZwYWKYvpqzVHfBfEoSiqd42RZswosgb1YKWUZQFrcm0RAfufRLIhnPBCy8XeFYgDqe0zbLRr2trIs+9BqGgClLoEQIFiHkslWGAdvoaJBKWz/78Vm0GAJFNynCKC8j+QHJtpjeRYYjZi30G0jNLL1a/c6yaFWknGicMUeSdD7q0Bxis5Zpa2s62kllY6sXvpldzhgUZurdr9y+9MATrevzflajzP9sVuZ+cALNS8wDDYY7VH5DINDn0M38neY2tAO8mqBozqNopUlyKnDAcCgLX1TVSTf6idIhZTgFdRuUHz3+/EnTz0vEfajY0K53HVhVIFVZLCzI+ZVGO45vw7ZY2Snrqph1Eejrira0RFj4BJbrZ4HNNc08FcdydPlqLnTQjAs26prm72CQKnJls+sdvCbveNMKk/TmnBCXHGHHDJCA8N9kGDftm8oemuFMTQuyiq+ueZ2J6OZd4XMLqCLDcQTnWPkhGCxXN+YUtbPDoJ6SLWsvWssU0YErP3o2WbFgWgsVSR26Q7c7V2MyoXcKmNHtddgHS6ACsmzVuWEpfdci66ZfU=
     branches:
     - master
 jdk:
-- oraclejdk8
+- oraclejdk9
 script:
-- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 cache:
   directories:
   - "$HOME/.m2/repository"
   - "$HOME/.sonar/cache"
-env:
-  global:
-    secure: JKuxChIWBvQigRK20dxGvfS5mc+nYxYC+Q9iqKLd1ZsEt6Kh99wVKkQjqpbbC7+voyCADLJwMQ2t1xESvG/HMG1wLrdGvnk/HSl6+7d7RMgBFrvSxdi2Dyb90oKTulZLpUNYg0zHT8T0vCxzVdP3K6Srcm3OWF18vgiau5XysYh4a5emChCZ+0xf3cw/TIyr6olMtcPTLjVFykq1Q8yGx+xKWs1ofCUyg9LRu54omPZbzhkMAZc8BNyfPMauC57HAbmprpTWxvlV73lDED6htsP3um87WXKP/XDR/iiUu6X7ari8KQkeQ9WtUlHW8UjoyHNXAWPkKmVW3Qz4BtDnNJZDadJFCPJhpA46H9obxwxZM3X/YRH27VzMC0u2/gtdd/Th8aXiFo/kzHqFkfLPxuNSgGXTSdfVxCiBo6y6F3+Q6e+aNYWlFvK1YTExqnqBndtCji15delEO3zz5WzfMpo+T+0czo6S9EOdVfjJrXdfPUA/Pf6Sfl3+5WiwWMqLfZ5sX0V+9enCUQtf6QFxSegJRBXtnBVJOb5JlQgA5yVi+AYI3b6Y9k6Wkcw6zt2xtFKYq/G64ZvLJRz3NZs52/rHHHKRyMQ//vKF0NNYyOOg7TsRUYHEbUpMoZoYqSpsDgNsJOm+bhp+zXPm73EgmNcInvQPnWhDJc+K8yTI5k8=
+
+install:
+  - mvn --settings .travis/settings.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+
+deploy:
+  -
+    provider: script
+    script: .travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: slixes/parent
+      branch: master
+      jdk: oraclejdk9
+  -
+    provider: script
+    script: .travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: slixes/parent
+      tags: true
+      jdk: oraclejdk9
