@@ -74,12 +74,12 @@
     <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
     <gpg.plugin.version>1.6</gpg.plugin.version>
     <versions.maven.plugin>2.5</versions.maven.plugin>
+    <!-- Other properties -->
     <surefireArgLine/>
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     <sonar.jacoco.reportPath>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPath>
     <sonar.jacoco.itReportPath>${project.build.directory}/jacoco-it.exec</sonar.jacoco.itReportPath>
-
     <maven.version>[3.5.0,)</maven.version>
   </properties>
   <build>
@@ -156,9 +156,7 @@
           <version>${asciidoctor.plugin.version}</version>
           <configuration>
             <sourceDirectory>${asciidoc.dir}</sourceDirectory>
-            <outputDirectory>
-              ${project.build.directory}/docs/${project.artifactId}
-            </outputDirectory>
+            <outputDirectory>${project.build.directory}/docs/${project.artifactId}</outputDirectory>
             <sourceHighlighter>coderay</sourceHighlighter>
             <preserveDirectories>true</preserveDirectories>
             <relativeBaseDir>true</relativeBaseDir>
