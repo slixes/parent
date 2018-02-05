@@ -11,7 +11,7 @@ addons:
     branches:
     - master
 jdk:
-- oraclejdk9
+- oraclejdk8
 script:
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 cache:
@@ -30,7 +30,7 @@ deploy:
     on:
       repo: slixes/parent
       branch: master
-      jdk: oraclejdk9
+      jdk: oraclejdk8
   -
     provider: script
     script: .travis/deploy.sh
@@ -38,4 +38,4 @@ deploy:
     on:
       repo: slixes/parent
       tags: true
-      jdk: oraclejdk9
+      jdk: oraclejdk8
