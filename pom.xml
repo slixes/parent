@@ -65,7 +65,7 @@
     <surefire.report.plugin.version>2.20.1</surefire.report.plugin.version>
     <failsafe.plugin.version>2.20.1</failsafe.plugin.version>
     <release.plugin.version>2.5.3</release.plugin.version>
-    <enforcer.plugin.version>1.4.1</enforcer.plugin.version>
+    <enforcer.plugin.version>3.0.0-M1</enforcer.plugin.version>
     <project.info.reports.plugin.version>2.9</project.info.reports.plugin.version>
     <jacoco.plugin.version>0.8.0</jacoco.plugin.version>
     <dependency.versions.check.plugin.version>2.0.4</dependency.versions.check.plugin.version>
@@ -315,7 +315,7 @@
                       <limit>
                         <counter>COMPLEXITY</counter>
                         <value>COVEREDRATIO</value>
-                        <minimum>0.60</minimum>
+                        <minimum>0.80</minimum>
                       </limit>
                     </limits>
                   </rule>
