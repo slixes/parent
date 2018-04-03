@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.slixes</groupId>
@@ -41,53 +43,58 @@
   </distributionManagement>
 
   <properties>
+    <!-- Global properties -->
     <jdk.version>1.8</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <!--  Plugins  -->
-    <antrun.plugin.version>1.8</antrun.plugin.version>
+
+    <!-- Plugins -->
     <compiler.plugin.version>3.7.0</compiler.plugin.version>
-    <checkstyle.plugin.version>3.0.0</checkstyle.plugin.version>
+    <antrun.plugin.version>1.8</antrun.plugin.version>
     <jar.plugin.version>3.0.2</jar.plugin.version>
     <source.plugin.version>3.0.1</source.plugin.version>
     <resources.plugin.version>3.0.2</resources.plugin.version>
     <javadoc.plugin.version>3.0.0</javadoc.plugin.version>
-    <jsdoc.plugin.version>1.2.0</jsdoc.plugin.version>
     <dependency.plugin.version>3.0.2</dependency.plugin.version>
     <clean.plugin.version>3.0.0</clean.plugin.version>
     <deploy.plugin.version>2.8.2</deploy.plugin.version>
     <install.plugin.version>2.5.2</install.plugin.version>
     <assembly.plugin.version>3.1.0</assembly.plugin.version>
-    <site.plugin.version>3.6</site.plugin.version>
-    <surefire.plugin.version>2.20.1</surefire.plugin.version>
-    <surefire.report.plugin.version>2.20.1</surefire.report.plugin.version>
-    <failsafe.plugin.version>2.20.1</failsafe.plugin.version>
-    <release.plugin.version>2.5.3</release.plugin.version>
-    <enforcer.plugin.version>3.0.0-M1</enforcer.plugin.version>
     <project.info.reports.plugin.version>2.9</project.info.reports.plugin.version>
+    <site.plugin.version>3.7</site.plugin.version>
+    <surefire.plugin.version>2.21.0</surefire.plugin.version>
+    <surefire.report.plugin.version>2.21.0</surefire.report.plugin.version>
+    <failsafe.plugin.version>2.21.0</failsafe.plugin.version>
+    <enforcer.plugin.version>1.4.1</enforcer.plugin.version>
     <jacoco.plugin.version>0.8.0</jacoco.plugin.version>
     <dependency.versions.check.plugin.version>2.0.4</dependency.versions.check.plugin.version>
     <asciidoctor.plugin.version>1.5.6</asciidoctor.plugin.version>
-    <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
-    <gpg.plugin.version>1.6</gpg.plugin.version>
+    <jxr.plugin.version>2.5</jxr.plugin.version>
+    <checkstyle.plugin.version>3.0.0</checkstyle.plugin.version>
+    <release.plugin.version>2.5.3</release.plugin.version>
     <versions.maven.plugin>2.5</versions.maven.plugin>
-    <surefireArgLine />
+    <buildnumber.plugin.version>1.4</buildnumber.plugin.version>
+
+    <!-- Asciidoc properties -->
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
+
+    <!--Surefire args -->
+    <surefireArgLine/>
+    <failSafeArgLine/>
+
+    <!-- Sonar properties -->
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-    <sonar.jacoco.reportPath>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPath>
-    <sonar.jacoco.itReportPath>${project.build.directory}/jacoco-it.exec</sonar.jacoco.itReportPath>
-    <maven.version>[3.5.0,)</maven.version>
+    <sonar.jacoco.unit.reportPaths>${project.build.directory}/jacoco.exec
+    </sonar.jacoco.unit.reportPaths>
+    <sonar.jacoco.integration.reportPaths>${project.build.directory}/jacoco-it.exec
+    </sonar.jacoco.integration.reportPaths>
   </properties>
+
+
   <build>
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-antrun-plugin</artifactId>
-          <version>${antrun.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${compiler.plugin.version}</version>
           <configuration>
@@ -97,7 +104,6 @@
           </configuration>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <version>${source.plugin.version}</version>
           <executions>
@@ -111,40 +117,8 @@
           </executions>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>${release.plugin.version}</version>
-          <configuration>
-            <autoVersionSubmodules>true</autoVersionSubmodules>
-            <useReleaseProfile>false</useReleaseProfile>
-            <releaseProfiles>release</releaseProfiles>
-            <goals>deploy</goals>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
           <version>${assembly.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>${checkstyle.plugin.version}</version>
-          <executions>
-            <execution>
-              <id>validate</id>
-              <phase>validate</phase>
-              <configuration>
-                <encoding>UTF-8</encoding>
-                <consoleOutput>true</consoleOutput>
-                <failsOnError>true</failsOnError>
-                <configLocation>google_checks.xml</configLocation>
-              </configuration>
-              <goals>
-                <goal>check</goal>
-              </goals>
-            </execution>
-          </executions>
         </plugin>
         <plugin>
           <groupId>org.asciidoctor</groupId>
@@ -152,9 +126,7 @@
           <version>${asciidoctor.plugin.version}</version>
           <configuration>
             <sourceDirectory>${asciidoc.dir}</sourceDirectory>
-            <outputDirectory>
-              ${project.build.directory}/docs/${project.artifactId}
-            </outputDirectory>
+            <outputDirectory>${project.build.directory}/docs/${project.artifactId}</outputDirectory>
             <sourceHighlighter>coderay</sourceHighlighter>
             <preserveDirectories>true</preserveDirectories>
             <relativeBaseDir>true</relativeBaseDir>
@@ -163,12 +135,6 @@
           </configuration>
         </plugin>
         <plugin>
-          <groupId>com.phasebash.jsdoc</groupId>
-          <artifactId>jsdoc3-maven-plugin</artifactId>
-          <version>${jsdoc.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>${jar.plugin.version}</version>
           <executions>
@@ -176,100 +142,18 @@
               <id>default-jar</id>
               <configuration>
                 <archive>
+                  <!-- Generate a jar INDEX.LIST -->
                   <index>true</index>
+                  <!-- Add the Maven coordinates in the manifest -->
                   <manifestEntries>
                     <Maven-Group-Id>${project.groupId}</Maven-Group-Id>
                     <Maven-Artifact-Id>${project.artifactId}</Maven-Artifact-Id>
                     <Maven-Version>${project.version}</Maven-Version>
                   </manifestEntries>
                 </archive>
-                <excludes>
-                  <exclude>/docoverride/**</exclude>
-                  <exclude>/examples/**</exclude>
-                </excludes>
               </configuration>
             </execution>
           </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>${surefire.plugin.version}</version>
-          <configuration>
-            <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
-            <argLine>@{argLine} -server -Xmx1024M @{surefireArgLine}</argLine>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-report-plugin</artifactId>
-          <version>${surefire.report.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>${site.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>${javadoc.plugin.version}</version>
-          <configuration>
-            <additionalparam>-Xdoclint:none</additionalparam>
-            <sourceFileExcludes>
-              <sourceFileExclude>**/package-info.java</sourceFileExclude>
-              <sourceFileExclude>**/impl/**</sourceFileExclude>
-            </sourceFileExcludes>
-            <sourceFileIncludes>
-              <sourceFileInclude>io/slixes/**/*.java</sourceFileInclude>
-            </sourceFileIncludes>
-          </configuration>
-          <executions>
-            <execution>
-              <id>attach-javadocs</id>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>${resources.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-dependency-plugin</artifactId>
-          <version>${dependency.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>${install.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>${deploy.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>${clean.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>com.ning.maven.plugins</groupId>
-          <artifactId>maven-dependency-versions-check-plugin</artifactId>
-          <version>${dependency.versions.check.plugin.version}</version>
-          <configuration>
-            <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>${project.info.reports.plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
@@ -300,52 +184,146 @@
                 <goal>report-integration</goal>
               </goals>
             </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${surefire.plugin.version}</version>
+          <configuration>
+            <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
+            <argLine>@{argLine} -server -Xmx1024M -Dfile.encoding=UTF-8 -ea @{surefireArgLine}
+            </argLine>
+            <forkCount>1</forkCount>
+            <reuseForks>true</reuseForks>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${failsafe.plugin.version}</version>
+          <executions>
             <execution>
-              <id>default-check</id>
               <goals>
-                <goal>check</goal>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
               </goals>
               <configuration>
-                <rules>
-                  <rule>
-                    <element>BUNDLE</element>
-                    <limits>
-                      <limit>
-                        <counter>COMPLEXITY</counter>
-                        <value>COVEREDRATIO</value>
-                        <minimum>0.80</minimum>
-                      </limit>
-                    </limits>
-                  </rule>
-                </rules>
+                <!-- Sets the VM argument line used when integration tests are run. -->
+                <argLine>@{argLine} -server -Xmx1024M -Dfile.encoding=UTF-8 -ea @{failSafeArgLine}
+                </argLine>
               </configuration>
             </execution>
           </executions>
         </plugin>
         <plugin>
-          <groupId>org.sonatype.plugins</groupId>
-          <artifactId>nexus-staging-maven-plugin</artifactId>
-          <version>${nexus.staging.maven.plugin.version}</version>
-          <extensions>true</extensions>
+          <artifactId>maven-surefire-report-plugin</artifactId>
+          <version>${surefire.report.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${site.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${javadoc.plugin.version}</version>
           <configuration>
-            <serverId>ossrh</serverId>
-            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            <sourceFileExcludes>
+              <sourceFileExclude>**/package-info.java</sourceFileExclude>
+              <sourceFileExclude>**/impl/**</sourceFileExclude>
+            </sourceFileExcludes>
           </configuration>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-gpg-plugin</artifactId>
-          <version>${gpg.plugin.version}</version>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${resources.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${dependency.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${install.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${deploy.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${clean.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${enforcer.plugin.version}</version>
           <executions>
             <execution>
-              <id>sign-artifacts</id>
-              <phase>verify</phase>
+              <id>enforce-no-snapshots</id>
               <goals>
-                <goal>sign</goal>
+                <goal>enforce</goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <bannedPlugins>
+                    <level>WARN</level>
+                    <excludes>
+                      <exclude>org.apache.maven.plugins:maven-verifier-plugin</exclude>
+                    </excludes>
+                    <message>Please consider using the maven-invoker-plugin
+                      (http://maven.apache.org/plugins/maven-invoker-plugin/)!
+                    </message>
+                  </bannedPlugins>
+                  <requireMavenVersion>
+                    <version>[3.5.0,)</version>
+                  </requireMavenVersion>
+                  <requireJavaVersion>
+                    <version>1.8</version>
+                  </requireJavaVersion>
+                </rules>
+                <fail>true</fail>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>com.ning.maven.plugins</groupId>
+          <artifactId>maven-dependency-versions-check-plugin</artifactId>
+          <version>${dependency.versions.check.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>${project.info.reports.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jxr-plugin</artifactId>
+          <version>${jxr.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>${checkstyle.plugin.version}</version>
+          <executions>
+            <execution>
+              <id>validate</id>
+              <phase>validate</phase>
+              <configuration>
+                <encoding>UTF-8</encoding>
+                <consoleOutput>true</consoleOutput>
+                <failsOnError>true</failsOnError>
+                <configLocation>google_checks.xml</configLocation>
+              </configuration>
+              <goals>
+                <goal>check</goal>
               </goals>
             </execution>
           </executions>
+        </plugin>
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>${release.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>${antrun.plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -353,40 +331,44 @@
           <version>${versions.maven.plugin}</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-enforcer-plugin</artifactId>
-          <version>${enforcer.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <version>${failsafe.plugin.version}</version>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>buildnumber-maven-plugin</artifactId>
+          <version>${buildnumber.plugin.version}</version>
           <executions>
             <execution>
-              <id>default-integration-test</id>
+              <phase>validate</phase>
               <goals>
-                <goal>integration-test</goal>
+                <goal>create</goal>
               </goals>
             </execution>
           </executions>
+          <configuration>
+            <shortRevisionLength>8</shortRevisionLength>
+          </configuration>
         </plugin>
+
       </plugins>
     </pluginManagement>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
+        <artifactId>maven-enforcer-plugin</artifactId>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
       </plugin>
+      <plugin>
+        <artifactId>maven-failsafe-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
     </plugins>
   </build>
+
   <profiles>
     <profile>
       <id>release</id>
@@ -424,6 +406,22 @@
 
   <reporting>
     <plugins>
+      <plugin>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jxr-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>checkstyle</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
