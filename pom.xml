@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.slixes</groupId>
@@ -81,8 +83,8 @@
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
 
     <!--Surefire args -->
-    <surefireArgLine />
-    <failSafeArgLine />
+    <surefireArgLine/>
+    <failSafeArgLine/>
 
     <!-- Sonar properties -->
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
@@ -366,7 +368,7 @@
         </plugin>
       </plugins>
     </pluginManagement>
-    
+
     <plugins>
       <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -383,6 +385,10 @@
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>
