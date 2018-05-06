@@ -75,6 +75,7 @@
     <release.plugin.version>2.5.3</release.plugin.version>
     <versions.maven.plugin>2.5</versions.maven.plugin>
     <buildnumber.plugin.version>1.4</buildnumber.plugin.version>
+    <gpg.plugin.version>1.6</gpg.plugin.version>
 
     <!-- Asciidoc properties -->
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
@@ -349,6 +350,19 @@
           <configuration>
             <shortRevisionLength>8</shortRevisionLength>
           </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${gpg.executable}</version>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
 
       </plugins>
