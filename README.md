@@ -1,33 +1,17 @@
-# Releasing to OSSRSH
+# Slixes Parent
 
-Use the following two options to release:
-
-**Release using the Nexus Staging Plugin:**
-
- - Set a version
-
-  `mvn versions:set -DnewVersion=X`
-
- - Deploy using mvn deploy
-
-  `mvn clean deploy -Prelease`
-
- or
- - Deploy using the nexus staging plugin   
-
-  `mvn nexus-staging:release -Prelease`
-
-Note: You will have to deal with tagging separately
+Parent project containing the plugins definition for the slixes platform
 
 
-**Release using the Maven Release Plugin:**
+## Usage
 
- - Prepare the release:
- 
-   `mvn release:prepare -Dresume=false -Possrh -Prelease -Pbuild-extras`
+Import the parent project by adding the following tag to your `pom.xml` file.
 
-- Perform the release:
- 
-   `mvn release:perform -Dresume=false -Possrh -Prelease -Pbuild-extras`
-    
-4
+
+```xml
+<parent>
+  <groupId>io.slixes</groupId>
+  <artifactId>slixes-parent</artifactId>
+  <version>${version}</version>
+</parent>
+```
