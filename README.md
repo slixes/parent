@@ -1,4 +1,4 @@
-##Releasing to OSSRSH
+# Releasing to OSSRSH
 
 Use the following two options to release:
 
