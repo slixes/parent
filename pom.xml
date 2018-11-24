@@ -63,9 +63,9 @@
     <assembly.plugin.version>3.1.0</assembly.plugin.version>
     <project.info.reports.plugin.version>3.0.0</project.info.reports.plugin.version>
     <site.plugin.version>3.7.1</site.plugin.version>
-    <surefire.plugin.version>2.22.0</surefire.plugin.version>
-    <surefire.report.plugin.version>2.22.0</surefire.report.plugin.version>
-    <failsafe.plugin.version>2.22.0</failsafe.plugin.version>
+    <surefire.plugin.version>3.0.0-M1</surefire.plugin.version>
+    <surefire.report.plugin.version>3.0.0-M1</surefire.report.plugin.version>
+    <failsafe.plugin.version>3.0.0-M1</failsafe.plugin.version>
     <enforcer.plugin.version>3.0.0-M2</enforcer.plugin.version>
     <jacoco.plugin.version>0.8.2</jacoco.plugin.version>
     <dependency.versions.check.plugin.version>2.0.4</dependency.versions.check.plugin.version>
