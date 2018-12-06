@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.slixes</groupId>
@@ -45,7 +47,7 @@
 
   <properties>
     <!-- Global properties -->
-    <jdk.version>1.8</jdk.version>
+    <jdk.version>11</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -83,8 +85,8 @@
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
 
     <!--Surefire args -->
-    <surefireArgLine />
-    <failsafeArgLine />
+    <surefireArgLine/>
+    <failsafeArgLine/>
 
     <!-- Sonar properties -->
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
@@ -205,7 +207,8 @@
           <configuration>
             <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
             <argLine>
-              @{argLine} -XX:-UseSplitVerifier -server -Xmx1024M -Dfile.encoding=UTF-8 -ea @{surefireArgLine}
+              @{argLine} -XX:-UseSplitVerifier -server -Xmx1024M -Dfile.encoding=UTF-8 -ea
+              @{surefireArgLine}
             </argLine>
             <includes>
               <include>**/*Test.java</include>
@@ -220,7 +223,8 @@
           <version>${failsafe.plugin.version}</version>
           <configuration>
             <argLine>
-              @{argLine} -XX:-UseSplitVerifier -server -Xmx1024M -Dfile.encoding=UTF-8 -ea @{failsafeArgLine}
+              @{argLine} -XX:-UseSplitVerifier -server -Xmx1024M -Dfile.encoding=UTF-8 -ea
+              @{failsafeArgLine}
             </argLine>
             <includes>
               <include>**/*IT.java</include>
@@ -300,10 +304,10 @@
                     </message>
                   </bannedPlugins>
                   <requireMavenVersion>
-                    <version>[3.2.0,)</version>
+                    <version>[3.6.0,)</version>
                   </requireMavenVersion>
                   <requireJavaVersion>
-                    <version>1.8</version>
+                    <version>11</version>
                   </requireJavaVersion>
                 </rules>
                 <fail>true</fail>
