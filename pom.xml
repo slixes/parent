@@ -31,7 +31,7 @@
     <connection>scm:git:git@github.com:slixes/slixes-parent.git</connection>
     <developerConnection>scm:git:git@github.com:slixes/slixes-parent.git</developerConnection>
     <url>git@github.com:slixes/slixes-parent.git</url>
-    <tag>slixes-parent-1.0.5</tag>
+    <tag>slixes-parent-1.0.7</tag>
   </scm>
 
   <distributionManagement>
@@ -205,6 +205,8 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${surefire.plugin.version}</version>
           <configuration>
+            <forkCount>0</forkCount>
+            <reuseForks>false</reuseForks>
             <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
             <argLine>
               @{argLine} -XX:-UseSplitVerifier -server -Xmx1024M -Dfile.encoding=UTF-8 -ea
@@ -222,6 +224,8 @@
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>${failsafe.plugin.version}</version>
           <configuration>
+            <forkCount>0</forkCount>
+            <reuseForks>false</reuseForks>
             <argLine>
               @{argLine} -XX:-UseSplitVerifier -server -Xmx1024M -Dfile.encoding=UTF-8 -ea
               @{failsafeArgLine}
@@ -304,7 +308,7 @@
                     </message>
                   </bannedPlugins>
                   <requireMavenVersion>
-                    <version>[3.6.0,)</version>
+                    <version>[3.2.0,)</version>
                   </requireMavenVersion>
                   <requireJavaVersion>
                     <version>11</version>
@@ -332,6 +336,9 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${checkstyle.plugin.version}</version>
+          <configuration>
+            <excludes>**/module-info.java</excludes>
+          </configuration>
           <executions>
             <execution>
               <id>validate</id>
