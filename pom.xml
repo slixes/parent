@@ -308,7 +308,7 @@
                     </message>
                   </bannedPlugins>
                   <requireMavenVersion>
-                    <version>[3.2.0,)</version>
+                    <version>[3.3.9,)</version>
                   </requireMavenVersion>
                   <requireJavaVersion>
                     <version>11</version>
