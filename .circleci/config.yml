@@ -13,4 +13,4 @@ jobs:
           paths:
             - ~/.m2
           key: slixes-parent-{{ checksum "pom.xml" }}
-      - run: mvn verify 
+      - run: mvn verify
