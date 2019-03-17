@@ -101,6 +101,7 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${compiler.plugin.version}</version>
           <configuration>
+            <release>11</release>
             <source>${jdk.version}</source>
             <target>${jdk.version}</target>
             <optimize>true</optimize>
@@ -207,7 +208,7 @@
             <reuseForks>false</reuseForks>
             <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
             <argLine>
-              @{argLine} -XX:-UseSplitVerifier -server -Xmx1024M -Dfile.encoding=UTF-8 -ea
+              @{argLine} -XX:-UseSplitVerifier -server -Xmx1024M -Dfile.encoding=UTF-8 -ea --illegal-access=permit
               @{surefireArgLine}
             </argLine>
             <includes>
@@ -225,7 +226,7 @@
             <forkCount>0</forkCount>
             <reuseForks>false</reuseForks>
             <argLine>
-              @{argLine} -XX:-UseSplitVerifier -server -Xmx1024M -Dfile.encoding=UTF-8 -ea
+              @{argLine} -XX:-UseSplitVerifier -server -Xmx1024M -Dfile.encoding=UTF-8 -ea --illegal-access=permit
               @{failsafeArgLine}
             </argLine>
             <includes>
@@ -365,6 +366,9 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
           <version>${versions.maven.plugin}</version>
+          <configuration>
+            <generateBackupPoms>false</generateBackupPoms>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
