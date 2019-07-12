@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.slixes</groupId>
   <artifactId>slixes-parent</artifactId>
-  <version>1.1.1</version>
+  <version>1.1.2-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Slixes - Parent Project</name>
   <description>Parent POM for the Slixes Platform</description>
@@ -46,6 +46,7 @@
   <properties>
     <!-- Global properties -->
     <jdk.version>12</jdk.version>
+    <maven.version>3.6.0</maven.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -89,7 +90,8 @@
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     <sonar.jacoco.unit.reportPaths>${project.build.directory}/jacoco.exec
     </sonar.jacoco.unit.reportPaths>
-    <sonar.jacoco.integration.reportPaths>${project.build.directory}/jacoco-it.exec
+    <sonar.jacoco.integration.reportPaths>
+      ${project.build.directory}/jacoco-it.exec
     </sonar.jacoco.integration.reportPaths>
   </properties>
 
@@ -306,10 +308,10 @@
                     </message>
                   </bannedPlugins>
                   <requireMavenVersion>
-                    <version>[3.3.9,)</version>
+                    <version>[${maven.version},)</version>
                   </requireMavenVersion>
                   <requireJavaVersion>
-                    <version>11</version>
+                    <version>${jdk.version}</version>
                   </requireJavaVersion>
                 </rules>
                 <fail>true</fail>
