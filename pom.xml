@@ -51,7 +51,6 @@
     <maven.version>3.6.0</maven.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
     <!-- Plugins -->
     <compiler.plugin.version>3.8.1</compiler.plugin.version>
     <antrun.plugin.version>1.8</antrun.plugin.version>
@@ -80,17 +79,15 @@
     <buildnumber.plugin.version>1.4</buildnumber.plugin.version>
     <gpg.plugin.version>1.6</gpg.plugin.version>
     <nexus-staging.plugin.version>1.6.8</nexus-staging.plugin.version>
-
     <!-- Asciidoc properties -->
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
-
     <!--Surefire args -->
     <surefireArgLine/>
     <failsafeArgLine/>
-
     <!-- Sonar properties -->
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-    <sonar.jacoco.unit.reportPaths>${project.build.directory}/jacoco.exec
+    <sonar.jacoco.unit.reportPaths>
+      ${project.build.directory}/jacoco.exec
     </sonar.jacoco.unit.reportPaths>
     <sonar.jacoco.integration.reportPaths>
       ${project.build.directory}/jacoco-it.exec
@@ -478,7 +475,6 @@
       </build>
     </profile>
   </profiles>
-
   <reporting>
     <plugins>
       <plugin>
