@@ -31,7 +31,6 @@
     <connection>scm:git:git@github.com:slixes/slixes-parent.git</connection>
     <developerConnection>scm:git:git@github.com:slixes/slixes-parent.git</developerConnection>
     <url>git@github.com:slixes/slixes-parent.git</url>
-    <tag>slixes-parent-1.1.1</tag>
   </scm>
 
   <distributionManagement>
@@ -47,7 +46,7 @@
 
   <properties>
     <!-- Global properties -->
-    <jdk.version>12</jdk.version>
+    <jdk.version>13</jdk.version>
     <maven.version>3.6.0</maven.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
