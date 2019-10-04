@@ -62,7 +62,7 @@
     <install.plugin.version>3.0.0-M1</install.plugin.version>
     <assembly.plugin.version>3.1.1</assembly.plugin.version>
     <project.info.reports.plugin.version>3.0.0</project.info.reports.plugin.version>
-    <site.plugin.version>3.7.1</site.plugin.version>
+    <site.plugin.version>3.8.2</site.plugin.version>
     <surefire.plugin.version>3.0.0-M3</surefire.plugin.version>
     <surefire.report.plugin.version>3.0.0-M3</surefire.report.plugin.version>
     <failsafe.plugin.version>3.0.0-M3</failsafe.plugin.version>
