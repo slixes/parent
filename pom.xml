@@ -29,6 +29,7 @@
     <connection>scm:git:git@github.com:slixes/slixes-parent.git</connection>
     <developerConnection>scm:git:git@github.com:slixes/slixes-parent.git</developerConnection>
     <url>git@github.com:slixes/slixes-parent.git</url>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
