@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.slixes</groupId>
   <artifactId>slixes-parent</artifactId>
-  <version>1.1.6-SNAPSHOT</version>
+  <version>1.1.6</version>
   <packaging>pom</packaging>
   <name>Slixes - Parent Project</name>
   <description>Parent POM for the Slixes Platform</description>
@@ -54,26 +54,26 @@
     <antrun.plugin.version>3.0.0</antrun.plugin.version>
     <jar.plugin.version>3.2.0</jar.plugin.version>
     <source.plugin.version>3.2.1</source.plugin.version>
-    <resources.plugin.version>3.1.0</resources.plugin.version>
+    <resources.plugin.version>3.2.0</resources.plugin.version>
     <javadoc.plugin.version>3.2.0</javadoc.plugin.version>
     <dependency.plugin.version>3.1.2</dependency.plugin.version>
     <clean.plugin.version>3.1.0</clean.plugin.version>
     <deploy.plugin.version>3.0.0-M1</deploy.plugin.version>
     <install.plugin.version>3.0.0-M1</install.plugin.version>
     <assembly.plugin.version>3.3.0</assembly.plugin.version>
-    <project.info.reports.plugin.version>3.1.0</project.info.reports.plugin.version>
-    <site.plugin.version>3.9.0</site.plugin.version>
-    <surefire.plugin.version>3.0.0-M4</surefire.plugin.version>
-    <surefire.report.plugin.version>3.0.0-M4</surefire.report.plugin.version>
-    <failsafe.plugin.version>3.0.0-M4</failsafe.plugin.version>
+    <project.info.reports.plugin.version>3.1.1</project.info.reports.plugin.version>
+    <site.plugin.version>3.9.1</site.plugin.version>
+    <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
+    <surefire.report.plugin.version>3.0.0-M5</surefire.report.plugin.version>
+    <failsafe.plugin.version>3.0.0-M5</failsafe.plugin.version>
     <enforcer.plugin.version>3.0.0-M3</enforcer.plugin.version>
-    <jacoco.plugin.version>0.8.5</jacoco.plugin.version>
+    <jacoco.plugin.version>0.8.6</jacoco.plugin.version>
     <dependency.versions.check.plugin.version>2.0.4</dependency.versions.check.plugin.version>
-    <asciidoctor.plugin.version>2.0.0-RC.1</asciidoctor.plugin.version>
+    <asciidoctor.plugin.version>2.1.0</asciidoctor.plugin.version>
     <jxr.plugin.version>3.0.0</jxr.plugin.version>
-    <checkstyle.plugin.version>3.1.1</checkstyle.plugin.version>
+    <checkstyle.plugin.version>3.1.2</checkstyle.plugin.version>
     <release.plugin.version>3.0.0-M1</release.plugin.version>
-    <versions.maven.plugin>2.7</versions.maven.plugin>
+    <versions.maven.plugin>2.8.1</versions.maven.plugin>
     <buildnumber.plugin.version>1.4</buildnumber.plugin.version>
     <gpg.plugin.version>1.6</gpg.plugin.version>
     <nexus-staging.plugin.version>1.6.8</nexus-staging.plugin.version>
@@ -129,7 +129,6 @@
           <configuration>
             <sourceDirectory>${asciidoc.dir}</sourceDirectory>
             <outputDirectory>${project.build.directory}/docs/${project.artifactId}</outputDirectory>
-            <sourceHighlighter>coderay</sourceHighlighter>
             <preserveDirectories>true</preserveDirectories>
             <relativeBaseDir>true</relativeBaseDir>
             <backend>html</backend>
